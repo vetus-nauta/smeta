@@ -12,4 +12,5 @@ projects/*/work/
 projects/*/review/
 projects/*/handoffs/
 projects/*/release/
+projects/*_Документы/
 checks/verification.json
