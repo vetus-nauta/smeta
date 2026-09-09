@@ -1,1 +1,1 @@
-﻿resource_id;name;characteristics;unit;quantity;estimate_positions;source_kind;price_source;price_period;region;net_unit_price;status
+﻿resource_id;name;characteristics;unit;quantity;estimate_positions;source_kind;price_source;price_period;region;net_unit_price;status;project_revision;source_document;source_row_or_cell;xml_sysid;base_material;price_subject;complete_set;ksr_group;ksr_group_name;ksr_catalog_version;ksr_basis;open_issue_ids
