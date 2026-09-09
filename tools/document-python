@@ -1,0 +1,9 @@
+#!/bin/sh
+# Python environment for document tools; no activation or shell profile changes.
+set -eu
+runtime="${HOME}/.local/share/smetchik/document-tools/venv/bin/python"
+if [ ! -x "$runtime" ]; then
+    echo "Document environment is missing. See office/document-tools.md." >&2
+    exit 1
+fi
+exec "$runtime" "$@"

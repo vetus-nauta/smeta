@@ -6,7 +6,7 @@
       "url": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html",
       "checked_on": "2026-09-09",
       "status": "official_documentation_read",
-      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+      "limitations": "Описание функций; фактическая установка и ограниченные проверки см. office/document-tools.md и checks/document-tools-acceptance.md."
     },
     {
       "id": "OCR-DOC-OCRMYPDF",
@@ -14,7 +14,7 @@
       "url": "https://ocrmypdf.readthedocs.io/en/latest/introduction.html",
       "checked_on": "2026-09-09",
       "status": "official_documentation_read",
-      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+      "limitations": "Описание функций; фактическая установка и ограниченные проверки см. office/document-tools.md и checks/document-tools-acceptance.md."
     },
     {
       "id": "OCR-DOC-PDFPLUMBER",
@@ -22,7 +22,31 @@
       "url": "https://github.com/jsvine/pdfplumber",
       "checked_on": "2026-09-09",
       "status": "official_documentation_read",
-      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+      "limitations": "Описание функций; фактическая установка и ограниченные проверки см. office/document-tools.md и checks/document-tools-acceptance.md."
+    },
+    {
+      "id": "OCR-DOC-GIMAGEREADER",
+      "title": "gImageReader: official project",
+      "url": "https://github.com/manisandro/gImageReader",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Проверенные операции и пределы проверки указаны в протоколе установки."
+    },
+    {
+      "id": "OCR-DOC-OPENPYXL",
+      "title": "openpyxl tutorial",
+      "url": "https://openpyxl.readthedocs.io/en/stable/tutorial.html",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Проверенные операции и пределы проверки указаны в протоколе установки."
+    },
+    {
+      "id": "OCR-DOC-PYTHON-DOCX",
+      "title": "python-docx documentation",
+      "url": "https://python-docx.readthedocs.io/en/latest/",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Проверенные операции и пределы проверки указаны в протоколе установки."
     }
   ]
 }
