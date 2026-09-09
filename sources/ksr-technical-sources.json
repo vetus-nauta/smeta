@@ -1,0 +1,110 @@
+[
+  {
+    "id": "SPR01",
+    "title": "Акуспрей / ЭйрАкустик — карточка продукта",
+    "publisher": "Techno Sonus",
+    "date": null,
+    "url": "https://tn-ss.ru/catalog/dekorativnye-materialy/akusticheskoe-napylenie/acospray-airacoustic/",
+    "locator": "Описание; Модификации; Расчёт сметы; Монтаж",
+    "sha256": "8884fc958058371f118f63f87de5d3cb1653745cae9f64f94ffa4b93e9401a1a",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "MFG-COATING",
+    "title": "Decobond Brass — Ionbond",
+    "publisher": "Ionbond IHI Group",
+    "date": "Дата публикации не установлена",
+    "url": "https://www.ionbond.com/coatings/decobond-brass/",
+    "locator": "Раздел описания собственной продукции",
+    "sha256": "f720e56e9f1fb4aa1c1be56ee86bcec1ae373a632473625a9aeab2f2a57b1abd",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "KSR44",
+    "title": "Классификатор строительных ресурсов, версия44",
+    "publisher": "Минстрой России / ФГИС ЦС",
+    "date": "2026-08-14",
+    "url": "https://fgiscs.minstroyrf.ru/api/values/GetFileContentCache/fe2a4003-8175-45dc-9c5c-ca60fd2efaf2",
+    "locator": "Книги07/08/09/10/59, полная иерархия в ../ksr-hierarchy-v44.json",
+    "sha256": null,
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "AM01",
+    "title": "СтопЗвук БП — технический лист",
+    "publisher": "ТехноСонус",
+    "date": null,
+    "url": "https://tn-ss.ru/pdf/stopzvuk-bp.pdf",
+    "locator": "PDF стр.1–2; таблица модификаций, состав, физические характеристики",
+    "sha256": "fc509e38e8e9b72ba71b7c7fc6e22f5ccc3b9abf49cd9bc2cfdbbecb741572c5",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "AM04",
+    "title": "ТермоЗвукоИзол Форте — технический лист",
+    "publisher": "ТехноСонус",
+    "date": null,
+    "url": "https://tn-ss.ru/pdf/termozvukoizol-forte.pdf",
+    "locator": "PDF стр.1: описание, состав, таблица модификаций",
+    "sha256": "e500d5df9212b0d8f58a0dc1cde66b72a03e3a0b16cfae9ee54ca14272a90ece",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "AM07",
+    "title": "Сертификат соответствия РОСС RU.32001.04ИБФ1.ОСП28.46427 с приложением",
+    "publisher": "СДС ПромТехСтандарт; ООО Прогресс, размещён производителем",
+    "date": "2024-01-25; срок до2027-01-24",
+    "url": "https://tn-ss.ru/upload/iblock/611/5ovqmdq60t544yp0jhw9y8a2jm4hun4u.pdf",
+    "locator": "Визуально прочитаны PDF стр.1 поле Продукция; стр.2 приложение №1",
+    "sha256": "0a67efec13f3043ccb43071deeeca9195265971f53b6aba6da5e4e199bfff661",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "belner-exploit",
+    "title": "Эксплуатационная карта акустических панелей Belner",
+    "publisher": "Belner / ТехноСонус",
+    "date": null,
+    "url": "https://www.belner.ru/content/belner_exploit_card.pdf",
+    "locator": "PDFстр.1 комплектующие;3 профильные сечения;7,11–12 углы;13 (печатная12) монтаж на профиль",
+    "sha256": "604a9a70e9c01b5586a248357d9c1150df60b4fe76e8528e772dcb74fc19710b",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "belner-classic",
+    "title": "Технический лист BELNER CLASSIC",
+    "publisher": "ТехноСонус",
+    "date": null,
+    "url": "https://tn-ss.ru/pdf/belner-classic.pdf",
+    "locator": "PDFстр.1 описание/состав;2 пожарные характеристики",
+    "sha256": "832097800338cb01ff9d33c9afd0544f5e937ddb647fae1df83e18a4cdf374ec",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  },
+  {
+    "id": "belner-profil",
+    "title": "Технический лист Профиль Белнер",
+    "publisher": "ТехноСонус",
+    "date": null,
+    "url": "https://tn-ss.ru/pdf/belner-profil.pdf",
+    "locator": "PDFстр.1 описание, состав, таблица модификаций",
+    "sha256": "63de04cb5b4300ba938c2d470ab1ff6285ebee7e7b19da2cdf04badda05e7c38",
+    "checked_on": "2026-09-09",
+    "scope": "Прочитаны технические характеристики и/или соответствующие разделы; не подтверждает конкретное проектное исполнение.",
+    "private_source": false
+  }
+]
