@@ -1,0 +1,36 @@
+{
+  "url": "https://xsd.grandsmeta.ru/ls/ls.zip",
+  "index_url": "https://xsd.grandsmeta.ru/",
+  "retrieved_on": "2026-09-09",
+  "version": "2026.1.1",
+  "scope": "Local estimate in GRAND-Smeta OpenXML format; not GGE, not GSFX signature/container specification",
+  "files": [
+    {
+      "path": "OpenXML_LS_2026.1.1.xsd",
+      "bytes": 428703,
+      "sha256": "5d520dbea528ddbf61c36d2b5308e410391494ecc19dfb9135a85f3143b1cbff"
+    },
+    {
+      "path": "ls.zip",
+      "bytes": 36399,
+      "sha256": "1a3894f55578f59760fee81d3dd0659cf70b7610a3010246b724194371bc5a7b"
+    }
+  ],
+  "elements": {
+    "APositionInfo/@Quantity": "string: expanded physical-volume formula or number; not globally numeric-only",
+    "AQuantity/@Fx": "formula expression",
+    "AQuantity/@Result": "computed formula value",
+    "AQuantity/@KUnit": "unit multiplicity coefficient",
+    "AQuantity/@KMult": "quantity multiplicity coefficient",
+    "APositionInfo/@SysID": "stable internal position number; not changed by display renumbering or movement",
+    "APositionInfo/@Number": "display position number",
+    "MaxSysID": "maximum position SysID, not position count",
+    "NotCountedResSysID": "reference to source unaccounted resource; appears on positions/resources",
+    "TResourseOptions/NotCount": "unaccounted resource option; inspect containing type in XSD"
+  },
+  "limitations": [
+    "Schema validity alone does not verify formula calculation or statutory applicability.",
+    "No private project data is included.",
+    "Gsfx Data.sign cryptographic semantics are outside this schema."
+  ]
+}

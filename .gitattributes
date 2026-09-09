@@ -2,3 +2,7 @@
 *.xml -text
 *.gge -text
 *.docx binary
+*.zip binary
+*.xsd -text
+# Preserve upstream XSD bytes, including its original whitespace.
+sources/grand-openxml/*.xsd -whitespace

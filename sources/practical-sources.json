@@ -1,0 +1,56 @@
+{
+  "checked_on": "2026-09-09",
+  "scope": "Public primary references supporting the practical review; private Drive evidence is stored only under .local",
+  "sources": [
+    {
+      "id": "PRACTICAL-XML-01",
+      "title": "ГРАНД-Смета OpenXML локальной сметы 2026.1.1",
+      "url": "https://xsd.grandsmeta.ru/ls/ls.zip",
+      "checked_on": "2026-09-09",
+      "status": "official_file_downloaded_and_read",
+      "local_manifest": "grand-openxml/manifest.json",
+      "supports": "Quantity/Fx/Result/KUnit/KMult, SysID/Number/MaxSysID, NotCount/NotCountedResSysID",
+      "limitations": "Не схема GGE, не спецификация подписи GSFX и не результат проверки производственного XML"
+    },
+    {
+      "id": "PRACTICAL-XML-02",
+      "title": "Связь добавленного материала с исходной строкой неучтённого ресурса",
+      "url": "https://help.grandsmeta.ru/rabota-s-resursami/rabota-s-resursami-v-smete/neuchtjonnye-zatraty/svyaz-dobavlennogo-materiala-s-iskhodnoj-strokoj-neuchtjonnogo-resursa",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "supports": "Сохранение связи уточнённого материала с неучтённым ресурсом"
+    },
+    {
+      "id": "PRACTICAL-XML-03",
+      "title": "Объём работ в натуральных единицах измерения",
+      "url": "https://help.grandsmeta.ru/objomy-rabot-v-smete/raschjot-ob-jomov-rabot/kak-zadat-ob-jom-rabot-v-naturalnykh-edinitsakh-izmereniya",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "supports": "Различие режимов ввода физического объёма и количества измерителей"
+    },
+    {
+      "id": "PRACTICAL-KAC-01",
+      "title": "История функций КАЦ: вложения, ссылки, формы и импорт",
+      "url": "https://www.grandsmeta.ru/whatisthenewversion",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "supports": "Различие внешних ссылок и вложений; зависимость формы и импорта от версии"
+    },
+    {
+      "id": "PRACTICAL-NORM-01",
+      "title": "Методика применения сметных норм, приказ 571/пр от 14.07.2022",
+      "url": "https://publication.pravo.gov.ru/Document/View/0001202208260024",
+      "checked_on": "2026-09-09",
+      "status": "primary_unavailable",
+      "limitations": "Официальный адрес найден; полный действующий текст и конкретные пункты допустимости аналогии этим проходом не подтверждены"
+    },
+    {
+      "id": "PRACTICAL-NORM-02",
+      "title": "Методика применения ФЕР, приказ 648/пр от 08.08.2022",
+      "url": "https://minstroyrf.gov.ru/upload/iblock/5de/Prikaz-Minstroya-Rossii-ot-8-avgusta-2022-g.-648pr.pdf",
+      "checked_on": "2026-09-09",
+      "status": "primary_unavailable",
+      "limitations": "Официальный адрес найден; прямое чтение завершилось timeout, актуальность редакции и точные ограничения требуют проверки"
+    }
+  ]
+}
