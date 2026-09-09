@@ -1,0 +1,12 @@
+{
+  "id": "TRAIN-001",
+  "name": "Учебный стенд отдела — не производственная смета",
+  "status": "DRAFT",
+  "created_at": "2026-09-09T15:45:37.103552+00:00",
+  "region": null,
+  "price_date": null,
+  "method": null,
+  "normative_base": null,
+  "tax_basis": null,
+  "educational": true
+}

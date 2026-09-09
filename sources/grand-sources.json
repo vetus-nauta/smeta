@@ -1,0 +1,120 @@
+{
+  "checked_on": "2026-09-09",
+  "scope": "Официальная документация ГРАНД-Смета; конспект, не локальная коммерческая нормативная база",
+  "sources": [
+    {
+      "id": "GRAND-01",
+      "title": "Карточка программы и системные требования",
+      "url": "https://www.grandsmeta.ru/product-grand-smeta",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Версия 2026.2 Обновление 2 (16.2.2), поддерживаемые ОС и требования"
+    },
+    {
+      "id": "GRAND-02",
+      "title": "Файлы для загрузки",
+      "url": "https://www.grandsmeta.ru/download",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Утилита установки/обновления, Guardant, загрузчики Windows/Linux"
+    },
+    {
+      "id": "GRAND-03",
+      "title": "Выпуск 2026.1 и лицензирование",
+      "url": "https://shop.grandsmeta.ru/news/690-vypushchena-novaya-versiya-programmy-grand-smeta-versiya-2026-1",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Правила получения лицензии новой версии; сообщение о конкретном выпуске"
+    },
+    {
+      "id": "GRAND-04",
+      "title": "Расположение пользовательских и служебных файлов",
+      "url": "https://help.grandsmeta.ru/tekhnicheskij-razdel/gde-khranyatsya-polzovatelskie-i-sluzhebnye-fajly",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Пути Windows и настройка путей"
+    },
+    {
+      "id": "GRAND-05",
+      "title": "Стационарная версия в Linux",
+      "url": "https://help.grandsmeta.ru/tekhnicheskij-razdel/ustanovka-programmy-grand-smeta-v-os-linux/statsionarnaya-versiya-programmy-grand-smeta-v-os-linux",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Отдельная официальная инструкция Linux; ссылка для настройки рабочего места"
+    },
+    {
+      "id": "GRAND-06",
+      "title": "Что нового в версиях",
+      "url": "https://www.grandsmeta.ru/whatisthenewversion",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Мои сборники, функции 2026, развитие ВОР/КА/ССР"
+    },
+    {
+      "id": "GRAND-07",
+      "title": "Видеокурс разработчика",
+      "url": "https://www.grandsmeta.ru/videograndsmeta",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Карта функций: нормы, объёмы, ресурсы, БИМ, акты, формы, ОС/ССР; индекс курса прочитан, видеозаписи не просмотрены"
+    },
+    {
+      "id": "GRAND-08",
+      "title": "Ресурсно-индексный метод",
+      "url": "https://www.grandsmeta.ru/rim",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Официальная переадресация на https://help.grandsmeta.ru/resursno-indeksnyj-metod; прочитан учебный маршрут"
+    },
+    {
+      "id": "GRAND-09",
+      "title": "Соответствие редакции ФСНБ и сплит-формы",
+      "url": "https://help.grandsmeta.ru/resursno-indeksnyj-metod/normbase-select-rim/sootvetstvie-redaktsii-fsnb-i-split-formy",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Таблица разработчика для I–III кварталов 2026; правовой статус базы проверяется отдельно"
+    },
+    {
+      "id": "GRAND-10",
+      "title": "Проверка НР и СП",
+      "url": "https://help.grandsmeta.ru/nakladnye-raskhody-i-smetnaya-pribyl/proverka-nr-i-sp-na-sootvetstvie-spravochnym-znacheniyam",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Команда экспертизы, выбор эталона, ограничения для позиций без эталонного вида работ"
+    },
+    {
+      "id": "GRAND-11",
+      "title": "Экспорт XML",
+      "url": "https://help.grandsmeta.ru/ob-ekty-i-smety/eksport-smet-v-razlichnye-formaty/eksport-v-format-xml",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Мастер обычного обменного XML"
+    },
+    {
+      "id": "GRAND-12",
+      "title": "XSD сметы контракта",
+      "url": "https://xsd.grandsmeta.ru/sk/defaultpage.html",
+      "checked_on": "2026-09-09",
+      "publisher": "МГК ГРАНД",
+      "status": "official_page_observed",
+      "supports": "Каталог схемы формата ГРАНД-Смета: 2026.1.1 от 2026-04-03; не схема ГГЭ"
+    }
+  ],
+  "limitations": [
+    "Программа не запускалась в рамках исследования; практическая квалификация не подтверждена.",
+    "Наличие лицензии и установленных баз на ПК в этом исследовании не устанавливалось.",
+    "Главная help.grandsmeta.ru несколько раз отвечала timeout; отдельные статьи и переадресация /rim были прочитаны.",
+    "Юридические требования перепроверять по нормативным актам и данным ФГИС ЦС перед проектом."
+  ]
+}

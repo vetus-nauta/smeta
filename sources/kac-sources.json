@@ -1,0 +1,97 @@
+{
+  "checked_at": "2026-09-09",
+  "scope": "КП и КАЦ РФ: стартовая база отдела",
+  "completeness": "Не гарантирует полноту изменений после редакции 30.01.2026; повторная проверка обязательна перед выпуском проекта.",
+  "sources": [
+    {
+      "id": "KAC-01",
+      "title": "Приказ Минстроя 30.01.2026 №42/пр, официальная публикация",
+      "url": "https://publication.pravo.gov.ru/document/0001202602030008",
+      "source_type": "official_publication",
+      "verification": "search_verified",
+      "notes": "Опубликован 03.02.2026, зарегистрирован 02.02.2026 №85180; полный скан не распознан.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-02",
+      "title": "Минюст: карточка №42/пр",
+      "url": "https://minjust.consultant.ru/documents/56955",
+      "source_type": "official_registration_portal",
+      "verification": "opened",
+      "notes": "Регистрационные реквизиты; PDF по https://minjust.consultant.ru/files/56955 доступен, текст скана не извлечен.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-03",
+      "title": "Методика 421/пр, общие положения, ред. 30.01.2026",
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_362957/aed45e5f016b4703cbad00db9f9a009507aa5beb/",
+      "source_type": "normative_text_republication",
+      "verification": "full_text_read",
+      "notes": "Пп.13–24: источники, подписи, даты, реквизиты, ТЦ. Это текст нормативного акта в правовой системе, а не официальный сайт публикации.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-04",
+      "title": "Методика 421/пр, глава IV",
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_362957/431142ed6cd32bc8482bf4b45bf1221c88c0abf3/",
+      "source_type": "normative_text_republication",
+      "verification": "full_text_read",
+      "notes": "Пп.88–92: число источников, исключения, транспорт, ЗСР.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-05",
+      "title": "Методика 421/пр, глава XI",
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_362957/708cf05398365bfe93c670173e125045f01b059f/",
+      "source_type": "normative_text_republication",
+      "verification": "full_text_read",
+      "notes": "П.187: случаи пересчета, фактическая инфляция, обратное приведение при замене во время экспертизы.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-06",
+      "title": "Методика 421/пр, приложение 1",
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_362957/c5b433df1b225aa8dd7fb43943e6b11f2e73fba8/",
+      "source_type": "normative_text_republication",
+      "verification": "full_text_read",
+      "notes": "Рекомендуемая форма, 27 граф, ред.30/пр.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-07",
+      "title": "ФНС: применение НДС при переходе 20% → 22%",
+      "url": "https://www.nalog.gov.ru/rn74/ifns/ifns32/info/16596381/",
+      "source_type": "tax_authority_explanation",
+      "verification": "search_full_text",
+      "notes": "Публикация 20.01.2026; 22% на операции с 01.01.2026. Страница помечена архивной, для сделки повторно сверить НК.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-08",
+      "title": "СПб ЦГЭ: новая XML-схема КАЦ",
+      "url": "https://www.spbexp.ru/press-tsentr/news/vstupila-v-silu-novaya-redaktsiya-xml-skhemy-konyunkturnogo-analiza/",
+      "source_type": "state_expert_institution_notice",
+      "verification": "search_full_text_open_timeout",
+      "notes": "Сообщение 09.09.2025, старая 3_01 не принимается. Не доказывает отсутствие последующих версий в 2026.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-09",
+      "title": "ГРАНД-Смета: MarketAnalysis-4_02.xsd / Construction",
+      "url": "https://xsd.grandsmeta.ru/gge/version4/ka_402/construction.html",
+      "source_type": "software_vendor_schema_documentation",
+      "verification": "search_full_text",
+      "notes": "Существование схемы 4.02 и .gge; это документация разработчика, не официальный актуальный реестр Минстроя.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "KAC-10",
+      "title": "Минстрой: XML-схемы",
+      "url": "https://www.minstroyrf.gov.ru/tim/xml-skhemy/",
+      "source_type": "official_schema_catalog",
+      "verification": "fetch_timeout",
+      "notes": "Нужен повторный доступ перед выпуском. Актуальная схема не скачана и не валидирована.",
+      "checked_at": "2026-09-09"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-09-09",
+  "scope": "Начальная нормативная и образовательная карта; не полный аудит законодательства2026",
+  "status_legend": {
+    "primary_read": "Прочитана официальная страница",
+    "institutional_copy_read": "Прочитана копия образовательной организации",
+    "official_publication_service_metadata": "Прочитаны реквизиты сервиса; все сканы не расшифрованы",
+    "primary_search_metadata_only": "Карточка найдена поиском; полный текст не прочитан",
+    "primary_unavailable": "Официальный URL известен, чтение не удалось",
+    "secondary_read": "Прочитан вторичный материал, нужно первичное подтверждение"
+  },
+  "sources": [
+    {
+      "id": "prof-97n",
+      "title": "Минтруд97н",
+      "url": "https://mintrud.gov.ru/docs/mintrud/orders/2855",
+      "status": "primary_read",
+      "signed_at": "2024-03-11",
+      "official_published_at": null,
+      "effective_from": "2024-09-01",
+      "notes": "Действует до01.09.2030; дата размещения на сайте16.09.2024 не равна вступлению.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "fgos-vo-481",
+      "title": "ФГОС ВО08.03.01, копия СамГТУ",
+      "url": "https://samgtu.ru/uploads/sveden/standarts/%D0%A4%D0%93%D0%9E%D0%A1%20%D0%92%D0%9E%2008.03.01.pdf",
+      "status": "institutional_copy_read",
+      "signed_at": "2017-05-31",
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Прочитан PDF23 страницы ред.27.02.2023; полнота последующих изменений на2026 не подтверждена.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "fgos-spo-442",
+      "title": "ФГОС СПО08.02.01",
+      "url": "https://publication.pravo.gov.ru/document/0001202407260002",
+      "status": "primary_unavailable",
+      "signed_at": "2024-06-25",
+      "official_published_at": "2024-07-26",
+      "effective_from": null,
+      "notes": "URL найден, open internal error. Дата публикации из вторичной карточки.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "fgos-spo-442-copy",
+      "title": "Карточка442 КонсультантПлюс",
+      "url": "https://www.consultant.ru/document/cons_doc_LAW_481860/2ff7a8c72de3994f30496a0ccbb1ddafdaddf518/",
+      "status": "secondary_read",
+      "signed_at": "2024-06-25",
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Регистрация25.07.2024 №78925; прием по стандарту2018 прекращен с31.12.2024.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "method-421",
+      "title": "421/пр сервис публикаций Минюста",
+      "url": "https://minjust.consultant.ru/documents/23704?items=100",
+      "status": "official_publication_service_metadata",
+      "signed_at": "2020-08-04",
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Реквизиты и наличие117 сканов подтверждены. Это не консолидированная редакция2026.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "method-42",
+      "title": "Изменение42/пр",
+      "url": "https://publication.pravo.gov.ru/document/0001202602030008?index=1",
+      "status": "primary_unavailable",
+      "signed_at": "2026-01-30",
+      "official_published_at": "2026-02-03",
+      "effective_from": "2026-02-14",
+      "notes": "Timeout. Даты публикации/применения подтверждены пока вторично.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "method-42-report",
+      "title": "АЙТАТ о42/пр",
+      "url": "https://its.i-tat.ru/articles/prikaz-minstroya-rf-no42pr-ot-30-yanvarya-2026-g-utverzhdeny-novye-izmeneniya-v-metodiku-no421pr",
+      "status": "secondary_read",
+      "signed_at": "2026-01-30",
+      "official_published_at": null,
+      "effective_from": "2026-02-14",
+      "notes": "Содержит официальный URL и реквизиты регистрации02.02.2026 №85180.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "nr-812",
+      "title": "Методика НР812/пр",
+      "url": "https://publication.pravo.gov.ru/Document/View/0001202103260001",
+      "status": "primary_search_metadata_only",
+      "signed_at": "2020-12-21",
+      "official_published_at": "2021-03-26",
+      "effective_from": null,
+      "notes": "Поиск нашел карточку, open internal error; найденная справочная ред.26.07.2022 требует сверки.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "sp-774",
+      "title": "Методика СП774/пр",
+      "url": "https://minstroyrf.gov.ru/docs/116584/",
+      "status": "primary_search_metadata_only",
+      "signed_at": "2020-12-11",
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Карточка найдена поиском; direct open недоступен; справочная ред.22.04.2022 требует сверки.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "frsn",
+      "title": "ФРСН",
+      "url": "https://minstroyrf.gov.ru/docs/476559/",
+      "status": "primary_unavailable",
+      "signed_at": null,
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Timeout, актуальный реестр не получен.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "fgiscs",
+      "title": "ФГИС ЦС",
+      "url": "https://fgiscs.minstroyrf.ru/",
+      "status": "primary_unavailable",
+      "signed_at": null,
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Internal error. Цены, индексы, XML и база не скачаны.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "fsnb19-report",
+      "title": "Сообщение о дополнении19 ФСНБ",
+      "url": "https://ericos-csp.ru/news/podgotovleno-dopolnenie-19-k-fsnb-2022/",
+      "status": "secondary_read",
+      "signed_at": "2026-08-12",
+      "official_published_at": null,
+      "effective_from": "2026-08-25",
+      "notes": "Приказ527/пр; применение требует первичного подтверждения.",
+      "checked_at": "2026-09-09"
+    },
+    {
+      "id": "pravo",
+      "title": "Правовой портал: опубликование",
+      "url": "https://pravo.gov.ru/",
+      "status": "primary_read",
+      "signed_at": null,
+      "official_published_at": null,
+      "effective_from": null,
+      "notes": "Прочитано пояснение о различении официальной публикации и размещения консолидированных текстов.",
+      "checked_at": "2026-09-09"
+    }
+  ]
+}

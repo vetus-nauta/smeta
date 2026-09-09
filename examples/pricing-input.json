@@ -1,0 +1,22 @@
+{
+  "educational": true,
+  "notice": "Учебные числа, не предложения реальных поставщиков и не КАЦ для выпуска",
+  "quotes": [
+    {
+      "id": "TRAINING-A",
+      "quote_price": "1220", "vat_mode": "included", "vat_rate": "0.22",
+      "base_units_per_quote_unit": "10", "base_quantity": "100", "rub_per_currency": "1",
+      "delivery_included": false, "delivery_total_net_rub": "200",
+      "zsr_included": false, "zsr_rate": "0.02",
+      "basis": "УЧЕБНЫЙ ПРИМЕР: упаковка 10 единиц; доставка на 100 единиц; условные ЗСР 2% от цены с доставкой. Применимость ставок к реальному объекту не задана."
+    },
+    {
+      "id": "TRAINING-B",
+      "quote_price": "103", "vat_mode": "excluded", "vat_rate": "0.22",
+      "base_units_per_quote_unit": "1", "base_quantity": "100", "rub_per_currency": "1",
+      "delivery_included": true, "delivery_total_net_rub": "0",
+      "zsr_included": false, "zsr_rate": "0.02",
+      "basis": "УЧЕБНЫЙ ПРИМЕР: цена за единицу с доставкой без НДС; условные ЗСР 2%. Техническая сопоставимость в реальном проекте потребовала бы доказательств."
+    }
+  ]
+}

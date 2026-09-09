@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.sqlite3-*
+.local/
+.env
+.env.*
+!.env.example
+# Raw project inputs and unfinished calculations stay local.
+projects/*/input/
+projects/*/work/
+projects/*/review/
+projects/*/handoffs/
+projects/*/release/
+checks/verification.json

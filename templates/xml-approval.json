@@ -1,0 +1,23 @@
+{
+  "project_id": "PROJECT-001",
+  "version": "v001",
+  "decision": "NOT_APPROVED",
+  "approved_by": "",
+  "approved_at": "",
+  "approval_scope": "internal_department",
+  "xml_file": "result.xml",
+  "xml_sha256": "",
+  "review_file": "review.md",
+  "review_sha256": "",
+  "review_status": "NOT_CHECKED",
+  "validation_file": "validation.md",
+  "validation_sha256": "",
+  "validation_status": "NOT_CHECKED",
+  "format_and_schema": "",
+  "validation_na_reason": "",
+  "open_blockers": [],
+  "open_major": [],
+  "publication_scope": "NOT_CONFIRMED",
+  "customer_approval_required": false,
+  "attachments": []
+}
