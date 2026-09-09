@@ -1,0 +1,1 @@
+scenario_id;question_id;baseline_revision;changed_parameter;baseline_value;scenario_value;unit;input_evidence;cost_before;cost_after;cost_delta;compatible_scenarios;calculation_reference;approval_status
