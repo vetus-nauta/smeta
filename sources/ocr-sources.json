@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "id": "OCR-DOC-TESSERACT",
+      "title": "Tesseract: Command Line Usage",
+      "url": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+    },
+    {
+      "id": "OCR-DOC-OCRMYPDF",
+      "title": "OCRmyPDF: Introduction",
+      "url": "https://ocrmypdf.readthedocs.io/en/latest/introduction.html",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+    },
+    {
+      "id": "OCR-DOC-PDFPLUMBER",
+      "title": "pdfplumber: official repository and documentation",
+      "url": "https://github.com/jsvine/pdfplumber",
+      "checked_on": "2026-09-09",
+      "status": "official_documentation_read",
+      "limitations": "Документация функций; пакет не установлен и локальная точность не измерена."
+    }
+  ]
+}
