@@ -1,0 +1,178 @@
+{
+  "checked_on": "2026-09-09",
+  "scope": "Six practical cases: five forum pages as evidence, seven separately verified developer references for technical procedures",
+  "case_count": 6,
+  "forum_page_count": 5,
+  "primary_page_count": 7,
+  "scope_limit": "Only relevant exchanges and cited official sections were read; no claim of reading all forum threads. No attached estimates, personal contacts or third-party calculation archives collected.",
+  "sources": [
+    {
+      "id": "FR-FORUM-01",
+      "title": "Неучтенный материал",
+      "url": "https://cmet4uk.ru/forum/22-14243-1",
+      "checked_on": "2026-09-09",
+      "status": "forum_relevant_exchange_read",
+      "source_role": "firsthand_problem_and_reply_evidence_not_technical_authority",
+      "discussion_dates": "2011-12-28 / 2012-08-28",
+      "posts": "1–6",
+      "cases": [
+        "FR-01"
+      ],
+      "author_resolution_confirmed": false,
+      "limitations": "ГРАНД-Смета 5; исходный автор сообщил ограничения предложенного решения, результат не подтверждён."
+    },
+    {
+      "id": "FR-FORUM-02",
+      "title": "Ошибки в Гранд-Смете версии 7: поиск неучтённого материала",
+      "url": "https://cmet4uk.ru/forum/22-26607-19",
+      "checked_on": "2026-09-09",
+      "status": "forum_relevant_exchange_read",
+      "source_role": "firsthand_problem_and_reply_evidence_not_technical_authority",
+      "discussion_dates": "2015-05-19",
+      "posts": "279–282",
+      "cases": [
+        "FR-02"
+      ],
+      "author_resolution_confirmed": false,
+      "limitations": "Историческая кодировка ФЕР/ФССЦ; подбор по конкретному проекту и конечный результат не проверены."
+    },
+    {
+      "id": "FR-FORUM-03",
+      "title": "Ведомость ресурсов по смете",
+      "url": "https://smetchik.com/forum/forum34/192-vedomost-resursov-po-smete/",
+      "checked_on": "2026-09-09",
+      "status": "forum_relevant_exchange_read",
+      "source_role": "firsthand_problem_and_reply_evidence_not_technical_authority",
+      "discussion_dates": "2020-02-10",
+      "posts": "1–3",
+      "cases": [
+        "FR-03"
+      ],
+      "author_resolution_confirmed": false,
+      "limitations": "Версия не указана. Ответы — диагностические предположения; автор не подтвердил исправление."
+    },
+    {
+      "id": "FR-FORUM-04",
+      "title": "Понижающий коэффициент на материалы",
+      "url": "https://smetchik.com/forum/forum34/12-ponizhayushchiy-koeffitsient-na-materialy/",
+      "checked_on": "2026-09-09",
+      "status": "forum_relevant_exchange_read",
+      "source_role": "firsthand_problem_and_reply_evidence_not_technical_authority",
+      "discussion_dates": "2020-01-21",
+      "posts": "1–4",
+      "cases": [
+        "FR-04"
+      ],
+      "author_resolution_confirmed": false,
+      "limitations": "Версия не указана. Числовые коэффициенты и их нормативная применимость не приняты без техчасти проекта."
+    },
+    {
+      "id": "FR-FORUM-05",
+      "title": "СНБ ГЭСН-2017, ФЕР-2017: кратность и переход кодов",
+      "url": "https://cmet4uk.ru/forum/22-39561-2",
+      "checked_on": "2026-09-09",
+      "status": "forum_relevant_exchange_read",
+      "source_role": "firsthand_problem_and_reply_evidence_not_technical_authority",
+      "discussion_dates": "2017-06-29 / 2017-11-09",
+      "posts": "16–23",
+      "cases": [
+        "FR-05",
+        "FR-06"
+      ],
+      "author_resolution_confirmed": false,
+      "limitations": "Два разных эпизода; нет подтверждения устранения авторами. Утверждения о причинах ошибки и стопроцентной полноте сопоставления не подтверждены."
+    },
+    {
+      "id": "FR-PRIMARY-01",
+      "title": "Добавление неучтённого ресурса из списка однотипных материалов",
+      "url": "https://help.grandsmeta.ru/rabota-s-resursami/rabota-s-resursami-v-smete/neuchtjonnye-zatraty/dobavlenie-neuchtjonnogo-resursa-iz-spiska-odnotipnykh-materialov",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-01",
+        "FR-02"
+      ],
+      "supports": "Варианты добавления, связь количества, параметры поиска и проверка измерителя.",
+      "limitations": "Не разрешает конкретную нормативную замену без проектного основания."
+    },
+    {
+      "id": "FR-PRIMARY-02",
+      "title": "Связь добавленного материала с исходной строкой неучтённого ресурса",
+      "url": "https://help.grandsmeta.ru/rabota-s-resursami/rabota-s-resursami-v-smete/neuchtjonnye-zatraty/svyaz-dobavlennogo-materiala-s-iskhodnoj-strokoj-neuchtjonnogo-resursa",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-01"
+      ],
+      "supports": "Просмотр и заполнение связи уточнённого и исходного ресурса.",
+      "limitations": "Описание функции разработчиком, не проверка конкретного GGE."
+    },
+    {
+      "id": "FR-PRIMARY-03",
+      "title": "Как добавить в смету оборудование",
+      "url": "https://help.grandsmeta.ru/rabota-s-resursami/7-rabota-s-pozitsiyami-v-fakticheskikh-tsenakh-all/oborudovanie/kak-dobavit-v-smetu-oborudovanie",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-03"
+      ],
+      "supports": "Специальный вид работ, колонка ввода и выделение стоимости оборудования.",
+      "limitations": "Не доказывает причину конкретного исчезновения из ведомости; налоговый пример не универсален."
+    },
+    {
+      "id": "FR-PRIMARY-04",
+      "title": "Как применить коэффициент к строке ресурса",
+      "url": "https://help.grandsmeta.ru/primenenie-popravochnykh-koeffitsientov/kak-primenit-koeffitsient-k-stroke-resursa",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-04"
+      ],
+      "supports": "Адресат коэффициента, различия БИМ/РИМ, ФСНБ-2022 изменение 13 и функционал 2025.3.",
+      "limitations": "Конкретные значения и применимость проверяются по техчасти нужной редакции."
+    },
+    {
+      "id": "FR-PRIMARY-05",
+      "title": "Как задать объём работ в натуральных единицах измерения",
+      "url": "https://help.grandsmeta.ru/objomy-rabot-v-smete/raschjot-ob-jomov-rabot/kak-zadat-ob-jom-rabot-v-naturalnykh-edinitsakh-izmereniya",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-05"
+      ],
+      "supports": "Прямое количество измерителей и автоматический учёт кратности при вводе со знаком равенства.",
+      "limitations": "Не подтверждает причину и исправление форумного дефекта 2017."
+    },
+    {
+      "id": "FR-PRIMARY-06",
+      "title": "Выпущена новая версия ПК ГРАНД-Смета, версия 8.0",
+      "url": "https://www.grandsmeta.ru/allnews/11-obnovleniya-programmy/278-vypushchena-novaya-versiya-pk-grand-smeta-versiya-8-0",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-06"
+      ],
+      "supports": "Объявление 24.04.2017: альтернативный шифр и автоматический пересчёт в редакцию 2017.",
+      "limitations": "Историческая функция; не гарантия 100% сопоставления и не рекомендация использовать базу 2017 сейчас."
+    },
+    {
+      "id": "FR-PRIMARY-07",
+      "title": "Проверка соответствия позиций выбранной нормативной базе",
+      "url": "https://help.grandsmeta.ru/analiz-oshibok-i-pereschjot-smety-all/analiz-oshibok-i-pereschjot-smety/vozmozhnye-oshibki/kak-proverit-chto-vse-pozitsii-smety-sootvetstvuyut-tekushchej-normativnoj-baze",
+      "checked_on": "2026-09-09",
+      "status": "official_relevant_section_read",
+      "source_role": "software_developer_primary_documentation",
+      "cases": [
+        "FR-06"
+      ],
+      "supports": "Сравнение с выбранной базой, сохранение отчёта; операция проверки не меняет расчёт.",
+      "limitations": "Программная проверка не заменяет экспертизу и обоснование допустимости изменений."
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "checked_on": "2026-09-09",
+  "scope": "Six forum cases; historical outcomes separated from seven primary technical references",
+  "sources": [
+    {
+      "id": "FE-F01",
+      "title": "Вопросы-ответы по Гранд-смете, стр. 687",
+      "url": "https://cmet4uk.ru/forum/22-123-687",
+      "checked_on": "2026-09-09",
+      "status": "forum_page_read_historical_evidence",
+      "source_type": "forum_discussion",
+      "case_ids": "FE-01/FE-03/FE-04",
+      "discussion_dates": "2025-06-19; 2025-07-07—2025-07-09",
+      "supports": "История случая; техническое основание отдельно в первичных источниках",
+      "limitations": "ВОР, вопрос об индексе, округление; продолжение FE-01 на стр. 688; чужие вложения не скачивались; подпись профиля не подтверждает историческую версию ПО"
+    },
+    {
+      "id": "FE-F02",
+      "title": "Вопросы-ответы по Гранд-смете, стр. 688",
+      "url": "https://cmet4uk.ru/forum/22-123-688",
+      "checked_on": "2026-09-09",
+      "status": "forum_page_read_historical_evidence",
+      "source_type": "forum_discussion",
+      "case_ids": "FE-01",
+      "discussion_dates": "2025-07-09",
+      "supports": "История случая; техническое основание отдельно в первичных источниках",
+      "limitations": "Domino подтвердил появление индекса; прохождение экспертизы не показано; чужие вложения не скачивались; подпись профиля не подтверждает историческую версию ПО"
+    },
+    {
+      "id": "FE-F03",
+      "title": "Вопросы-ответы по Гранд-смете, стр. 634",
+      "url": "https://cmet4uk.ru/forum/22-123-634",
+      "checked_on": "2026-09-09",
+      "status": "forum_page_read_historical_evidence",
+      "source_type": "forum_discussion",
+      "case_ids": "FE-02",
+      "discussion_dates": "2023-08-12—2023-08-14",
+      "supports": "История случая; техническое основание отдельно в первичных источниках",
+      "limitations": "Неуспех обновления подтверждён; результат последующего совета неизвестен; чужие вложения не скачивались; подпись профиля не подтверждает историческую версию ПО"
+    },
+    {
+      "id": "FE-F04",
+      "title": "Вопросы-ответы по Гранд-смете, стр. 597",
+      "url": "https://cmet4uk.ru/forum/22-123-597",
+      "checked_on": "2026-09-09",
+      "status": "forum_page_read_historical_evidence",
+      "source_type": "forum_discussion",
+      "case_ids": "FE-05",
+      "discussion_dates": "2022-11-20—2022-11-21",
+      "supports": "История случая; техническое основание отдельно в первичных источниках",
+      "limitations": "Архивный обмен GGE; успешный обход не подтверждён; чужие вложения не скачивались; подпись профиля не подтверждает историческую версию ПО"
+    },
+    {
+      "id": "FE-F05",
+      "title": "Вопросы-ответы по Гранд-смете, стр. 246",
+      "url": "https://cmet4uk.ru/forum/22-123-246",
+      "checked_on": "2026-09-09",
+      "status": "forum_page_read_historical_evidence",
+      "source_type": "forum_discussion",
+      "case_ids": "FE-06",
+      "discussion_dates": "2014-11-14",
+      "supports": "История случая; техническое основание отдельно в первичных источниках",
+      "limitations": "Намерение восстановить акт; результат не показан; чужие вложения не скачивались; подпись профиля не подтверждает историческую версию ПО"
+    },
+    {
+      "id": "FE-O01",
+      "title": "Расчёт позиций сметы ресурсно-индексным методом",
+      "url": "https://help.grandsmeta.ru/resursno-indeksnyj-metod/rim-dlya-resursa",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C1: признак РИМ, прямая цена и базисная цена с индексом",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O02",
+      "title": "ГГЭ: дополнительная перевозка не связана с материалом",
+      "url": "https://help.grandsmeta.ru/ob-ekty-i-smety/eksport-smet-v-razlichnye-formaty/eksport-v-format-gge/gge-preduprezhdenie-dop-perevozka-ne-svyazana-s-materialom",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C2: различение доставки ресурса и вывоза мусора/грунта",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O03",
+      "title": "Импорт и обновление ВОР из файла Excel",
+      "url": "https://help.grandsmeta.ru/vedomost-ob-jomov-rabot/zagruzka-podgotovlennogo-vor-iz-fajla-ms-excel",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C3: структура XLSX, условия обновления; упомянут импорт ВОР из ГГЭ",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O04",
+      "title": "Для чего нужна вкладка «Физобъем»",
+      "url": "https://help.grandsmeta.ru/objomy-rabot-v-smete/raschjot-ob-jomov-rabot/dlya-chego-nuzhna-vkladka-fizob-em",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C4: программная настройка точности количества",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O05",
+      "title": "Экспорт в формат XML",
+      "url": "https://help.grandsmeta.ru/ob-ekty-i-smety/eksport-smet-v-razlichnye-formaty/eksport-v-format-xml",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C5: назначение обменного XML",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O06",
+      "title": "Экспорт в формат ГГЭ",
+      "url": "https://help.grandsmeta.ru/ob-ekty-i-smety/eksport-smet-v-razlichnye-formaty/eksport-v-format-gge",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C5: тип документа, метод, XML-схемы, проверка экспорта",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    },
+    {
+      "id": "FE-O07",
+      "title": "Резервное копирование и перенос данных",
+      "url": "https://help.grandsmeta.ru/pervoe-vklyuchenie/rezervnoe-kopirovanie-i-perenos-dannykh",
+      "checked_on": "2026-09-09",
+      "status": "official_page_read",
+      "source_type": "developer_documentation",
+      "supports": "C6: состав копии, восстановление, исключение сетевых мест хранения",
+      "limitations": "Документация программной функции; не подтверждение исправления форумного файла или нормативной применимости к конкретному объекту"
+    }
+  ]
+}

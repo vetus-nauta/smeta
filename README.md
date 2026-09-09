@@ -52,3 +52,5 @@ python3 /home/alexey/Groot/smetchik/tools/office.py check DEMO-002
 Правила и навыки изменяются с записью в [CHANGELOG.md](CHANGELOG.md) и коммитом. Эталонные навыки лежат в `skills/`, установленные копии на этом ПК — в `~/.codex/skills/`. [Архив XML](products/README.md) содержит только утверждённые версии; пока реальных XML нет.
 
 После клонирования: `python3 tools/office.py init`, затем `python3 tools/office.py index-sources`. SQLite — локальный производный реестр, исключённый из Git; первичные инструкции и реестры источников входят в репозиторий. Рабочие исходники/черновики в projects/ не публикуются автоматически. Проверка инструментов: `python3 -m unittest discover -s checks -p 'test_*.py' -v`.
+
+Дополнение 09.09.2026: [библиотека вопросов и ответов форумов](knowledge/forum-practice.md) с первичной проверкой решений и условиями применимости.
