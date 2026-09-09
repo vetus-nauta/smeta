@@ -1,0 +1,15 @@
+{
+  "url": "https://xsd.grandsmeta.ru/ka/ka.zip",
+  "checked_on": "2026-09-09",
+  "sha256": "b00e1b5934c6e7503566f9e5fdb1a69474a5ddf73b2da1b2a497d5645aa3bf8d",
+  "bytes": 8844,
+  "schema": {
+    "filename": "OpenXML_KA_2026.1.1.xsd",
+    "sha256": "5a267d16737d0347106a2d5eb3b3318ba6d0e654f9ae99ff27b96c0221e37290"
+  },
+  "supporting_urls": [
+    "https://xsd.grandsmeta.ru/",
+    "https://help.grandsmeta.ru/ob-ekty-i-smety/eksport-smet-v-razlichnye-formaty/eksport-v-format-xml",
+    "https://www.grandsmeta.ru/whatisthenewversion"
+  ]
+}
