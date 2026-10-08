@@ -181,3 +181,10 @@
 
 - 06.10.2026: нормативный корпус v002 — самостоятельное получение официальных OpenData ФСНБ-2020/2022, правила полного XML-импорта, разделения базисных цен и контроля исходного контекста.
 - 06.10.2026: отдельное нормативное дополнение — дисциплина технических частей, доказуемых локаторов коэффициентов, региональных кварталов, пропусков индексов и повторов официальных XLSX.
+
+
+## 2026-10-08 — Existing Smetchik estimate workflow
+
+- Added bounded archive/VOR audit and composition to the existing local agent, with immutable normative search, explicit physical units, source traceability and Decimal/XLSX outputs.
+- Uploaded JSON cannot approve normative applicability or current-price indexes/rates. Multi-sheet/section VOR rows and investigation conclusions are preserved; text similarity alone is not linkage proof.
+- Validation:86 tests plus updated security regression; real existing WebUI/Ollama45-row base direct draft50128.52 with independent gold and native XLSX download; original137 active quantities replayed. Professional applicability/current pricing, new KAC and native GRAND export remain unconfirmed. Private project documents and runtime databases excluded.
