@@ -101,21 +101,48 @@ def _unit_info(unit):
 def _technical_numbers(text):
     text=str(text).lower().replace('³','3').replace('²','2')
     quantities={}
-    for value,unit in re.findall(r'(\d+(?:[.,]\d+)?)\s*(?:\([^)]*\)\s*)?(м3|m3|м2|m2|см|мм|квт|кв|т)\b',text):
+    for value,unit in re.findall(r'(\d+(?:[.,]\d+)?)\s*(?:\([^)]*\)\s*)?(м3|m3|м2|m2|см|мм|квт|кв|т|м)\b',text):
         unit={'m3':'м3','m2':'м2'}.get(unit,unit)
         quantities.setdefault(unit,set()).add(str(Decimal(value.replace(',','.')).normalize()))
     groups=re.findall(r'групп[аы]?\s*(?:грунт\w*\s*)?(\d+)',text)
     groups+=re.findall(r'грунт\w*\s*(\d+)\s*групп',text)
     if groups:quantities['soil_group']=set(groups)
+    layer_words={'один':'1','одного':'1','одном':'1','два':'2','двух':'2','три':'3','трех':'3','трёх':'3'}
+    layers=re.findall(r'(\d+|один|одного|одном|два|двух|три|трех|трёх)\s*сло',text)
+    if layers:quantities['layers']={layer_words.get(x,x) for x in layers}
+    if re.search(r'половин\w*\s+кирпич|полкирпич|1\s*/\s*2\s*кирпич',text):quantities['brick_thickness']={'0.5'}
+    else:
+        brick=re.findall(r'(\d+(?:[.,]\d+)?)\s*кирпич',text)
+        if brick:quantities['brick_thickness']={str(Decimal(x.replace(',','.')).normalize()) for x in brick}
     return quantities
 
+def _number_ranges(text):
+    """Lexical intervals/upper bounds, never a technical-part approval."""
+    text=str(text).lower().replace('³','3').replace('²','2').replace(',', '.')
+    number=r'(\d+(?:\.\d+)?)';unit=r'(м3|m3|м2|m2|см|мм|квт|кв|т|м)\b'
+    ranges={}
+    for lo,hi,u in re.findall(number+r'\s*[-–]\s*'+number+r'\s*\)?\s*'+unit,text):
+        ranges.setdefault({'m3':'м3','m2':'м2'}.get(u,u),[]).append((Decimal(lo),Decimal(hi)))
+    for hi,u in re.findall(r'до\s*'+number+r'\s*'+unit,text):
+        ranges.setdefault({'m3':'м3','m2':'м2'}.get(u,u),[]).append((Decimal(0),Decimal(hi)))
+    for lo,hi,u in re.findall(r'от\s*'+number+r'\s*до\s*'+number+r'\s*'+unit,text):
+        ranges.setdefault({'m3':'м3','m2':'м2'}.get(u,u),[]).append((Decimal(lo),Decimal(hi)))
+    return ranges
+
+
+def _prefix_hits(terms,text):
+    words=re.findall(r'[а-яёa-z0-9]+',str(text).lower())
+    return [t for t in terms if any(w.startswith(t) for w in words)]
+
+
 def _numeric_evidence(requested,name):
-    actual=_technical_numbers(name);matches=[];mismatches=[];missing=[]
+    actual=_technical_numbers(name);intervals=_number_ranges(name);matches=[];mismatches=[];missing=[]
     for dimension,values in requested.items():
         for value in sorted(values):
-            evidence={'dimension':dimension,'requested':value,'candidate_values':sorted(actual.get(dimension,set()))}
-            if dimension not in actual:missing.append(evidence)
-            elif value in actual[dimension]:matches.append(evidence)
+            evidence={'dimension':dimension,'dimension_unit':{'brick_thickness':'brick_count','layers':'layer_count','soil_group':'ordinal_group'}.get(dimension,dimension),'requested':value,'candidate_values':sorted(actual.get(dimension,set()))}
+            if value in actual.get(dimension,set()) or any(lo<=Decimal(value)<=hi for lo,hi in intervals.get(dimension,[])):
+                evidence['interval_match']=value not in actual.get(dimension,set());matches.append(evidence)
+            elif dimension not in actual:missing.append(evidence)
             else:mismatches.append(evidence)
     return {'matches':matches,'mismatches':mismatches,'missing_in_candidate_name':missing,
             'authority':'Lexical numeric candidate ranking only; technical applicability not verified.'}
@@ -146,6 +173,12 @@ def search_candidates(description,technology='',materials='',unit='',technical_c
         query=' OR '.join('"'+t+'"*' for t in terms)
         rows=db.execute('''SELECT r.* FROM records_fts f JOIN records r ON r.id=f.rowid
             WHERE records_fts MATCH ? AND r.kind='norm' ORDER BY bm25(records_fts),r.id LIMIT 3000''',(query,)).fetchall()
+        focused_rank={}
+        if groups['technology']:
+            focused=' AND '.join('"'+t+'"*' for t in groups['technology'])
+            focused_rows=db.execute("SELECT r.* FROM records_fts f JOIN records r ON r.id=f.rowid WHERE records_fts MATCH ? AND r.kind='norm' ORDER BY bm25(records_fts),r.id LIMIT 300",(focused,)).fetchall()
+            focused_rank={r['id']:i+1 for i,r in reversed(list(enumerate(focused_rows)))}
+            rows+=focused_rows
         # Material names search the actual resource price records, then norm composition.
         if groups['materials']:
             mq=' OR '.join('"'+t+'"*' for t in groups['materials'])
@@ -154,30 +187,42 @@ def search_candidates(description,technology='',materials='',unit='',technical_c
             for code in resource_codes:
                 rows+=db.execute('''SELECT DISTINCT r.* FROM norm_resources n JOIN records r ON r.id=n.record_id
                     WHERE n.code=? AND r.kind='norm' LIMIT 100''',(code,)).fetchall()
-        ranked=[];seen=set()
+        ranked=[];seen=set();initial_rank={r['id']:i+1 for i,r in reversed(list(enumerate(rows)))}
         for r in rows:
             if r['id'] in seen or (r['namespace'],r['revision']) not in allowed:continue
             seen.add(r['id']);text=(r['name']+' '+(r['body'] or '')).lower()
             resource_text=(' '.join(n[0] for n in db.execute('SELECT attributes_json FROM norm_resources WHERE record_id=?',(r['id'],))).lower() if groups['materials'] else '')
-            hits={k:[t for t in ts if t in text or k=='materials' and t in resource_text] for k,ts in groups.items()}
+            hits={k:_prefix_hits(ts,text+(' '+resource_text if k=='materials' else '')) for k,ts in groups.items()}
             score=sum(len(ts)*({'technology':4,'materials':3,'description':2}.get(k,1)) for k,ts in hits.items())
             unit_match=None if not unit else unit==r['unit']
             requested_unit=_unit_info(unit);norm_unit=_unit_info(r['unit'])
             compatible=None if not unit else (requested_unit['physical_unit'] is not None and requested_unit['physical_unit']==norm_unit['physical_unit'])
             if compatible:score+=6
             elif unit:score-=12
-            composition_hits=[t for t in groups['technology'] if t in (r['body'] or '').lower()]
-            name_technology_hits=[t for t in groups['technology'] if t in r['name'].lower()]
-            score+=5*len(name_technology_hits)
-            score-=5*sum(t not in text for t in groups['technology'])
+            composition_hits=_prefix_hits(groups['technology'],r['body'] or '')
+            name_technology_hits=_prefix_hits(groups['technology'],r['name'])
+            name_hits=_prefix_hits(terms,r['name'])
+            score+=4*len(name_hits)+60/(1+initial_rank[r['id']])
+            if r['id'] in focused_rank:score+=60/(1+focused_rank[r['id']])
+            # Numeric/layer conditions already have dimensional scoring below.
+            # Do not count word-form numerals again as installation technology.
+            operation_hits=[t for t in name_technology_hits if t not in ('один','одного','одном','два','двух','три','трех','трёх','слоя','слоев','слоёв') and not t.isdigit()]
+            score+=12*len(operation_hits)
+            # Object/purpose from the description matters as much as installation.
+            # Retrieval ranking only, never applicability evidence.
+            score+=12*len(_prefix_hits(groups['description'],r['name']))
+            conflicts=selection_conflicts({'description':description,'technology':technology,'materials':materials,'technical_conditions':technical_conditions},dict(r))
+            score-=120*len(conflicts)
+            score-=5*sum(t not in hits['technology'] for t in groups['technology'])
             numbers=_numeric_evidence(requested_numbers,r['name'])
             score+=20*len(numbers['matches'])-30*len(numbers['mismatches'])-8*len(numbers['missing_in_candidate_name'])
             ranked.append((score,r,hits,unit_match,numbers,compatible,norm_unit,composition_hits,name_technology_hits))
         for score,r,hits,unit_match,numbers,compatible,norm_unit,composition_hits,name_technology_hits in sorted(ranked,key=lambda x:(-x[0],x[1]['namespace'],x[1]['revision'],x[1]['code']))[:limit]:
-            e=_evidence(db,r);e['rank_evidence']={'score':score,'matched_prefix_tokens':hits,'requested_unit':unit,
+            e=_evidence(db,r);e['rank_evidence']={'score':score,'first_pass_rank':initial_rank[r['id']],'matched_prefix_tokens':hits,'requested_unit':unit,
               'unit_matches':unit_match,'exact_norm_unit_matches':unit_match,'physical_unit_compatible':compatible,
               'norm_unit':norm_unit,'composition_technology_hits':composition_hits,'name_technology_hits':name_technology_hits,'numeric_conditions':numbers,'technical_conditions_verified':False,
               'unit_policy':'Exact normative unit and physical dimensional compatibility are separate. Factor reported explicitly; mismatched dimensions never converted.'}
+            e['rank_evidence']['negative_requirement_conflicts']=selection_conflicts({'description':description,'technology':technology,'materials':materials,'technical_conditions':technical_conditions},e)
             result['candidates'].append(e)
     if not result['candidates']:result['status']='NO_CANDIDATES'
     return result
@@ -237,3 +282,72 @@ if __name__=='__main__':
     import argparse
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('description',nargs='?');p.add_argument('--namespace');p.add_argument('--revision');p.add_argument('--unit',default='');p.add_argument('--technology',default='');p.add_argument('--materials',default='');p.add_argument('--period');p.add_argument('--catalog',action='store_true');a=p.parse_args()
     print(json.dumps(catalog() if a.catalog else search_candidates(a.description or '',a.technology,a.materials,a.unit,namespace=a.namespace,revision=a.revision,calculation_period=a.period),ensure_ascii=False,indent=2))
+
+
+def context_literals(record):
+    """Verbatim normative section labels, not inferred applicability."""
+    return re.findall(r'\b[А-ЯЁ][А-ЯЁ0-9 (),;/\-]{10,}[А-ЯЁ0-9]\b',record['body'])
+
+
+def selection_conflicts(source,record):
+    """Conservative negative requirements, never evidence of applicability.
+
+    Scope restrictions are taken only from verbatim normative headings. Primary
+    installation methods are taken from the title and work body, not resources or
+    an auxiliary protective layer. A matching token never grants approval.
+    """
+    original=' '.join(str(source.get(k,'')) for k in ('description','technology','materials','technical_conditions')).lower()
+    headings=' '.join(context_literals(record)).lower()
+    restrictions={
+      'nuclear_power':r'атомн\w*\s+электростанц|\bаэс\b',
+      'hydraulic_structure':r'гидротехническ',
+      'water_management_earthwork':r'водохозяйственн|(?:устройство|строительство)\s+каналов|дамб\s+обвалован',
+      'sliding_formwork':r'скользящ\w*\s+опалуб',
+      'metro':r'метрополитен',
+      'roofing':r'кровл|крыш',
+      'bridge_structure':r'мост(?:ы|ов|а|у|ах|ами)?\b|путепровод',
+      'underwater_work':r'подводн',
+      'offshore_structure':r'морск\w*\s+(?:сооружен|гидротех)',
+    }
+    conflicts=[]
+    for kind,pattern in restrictions.items():
+        if re.search(pattern,str(record.get('body','')).lower()) and not re.search(pattern,original):
+            conflicts.append({'kind':'MISSING_SPECIALIZED_SCOPE','requirement':kind,'normative_text':record.get('body',''),'reason':'Original source does not establish the explicitly named specialized scope'})
+    # Flame fusing and gluing the main roll layer are different operations.
+    # Mastic used for gravel protection is not the installation of the roll layer.
+    main_source=' '.join(str(source.get(k,'')) for k in ('description','technology')).lower()
+    body=record.get('body','').lower()
+    fused=r'наплав|подплав|газопламенн'
+    glued=r'(?:наклей|приклей|наклеив|приклеив)\w*[^.]{0,100}(?:рулон|ковр)[^.]{0,100}(?:мастик|кле)'
+    if re.search(fused,main_source) and re.search(glued,body) and not re.search(fused,body):
+        conflicts.append({'kind':'PRIMARY_METHOD_CONTRADICTION','source_method':'flame_fusing','norm_method':'adhesive_roll_installation','reason':'Explicit source fusing cannot be replaced by mastic gluing of the main roll layer'})
+    if re.search(r'оклееч|наклей|приклей|приклеив|наклеив',main_source) and re.search(r'насухо|без\s+(?:приклеив|наклеив|мастик)',record.get('name','').lower()):
+        conflicts.append({'kind':'PRIMARY_METHOD_CONTRADICTION','source_method':'adhesive_installation','norm_method':'dry_laying','reason':'Explicit adhesive installation cannot be replaced by dry laying'})
+    # Opposed orientation and roll-vs-applied coating are explicit negative
+    # work requirements. Their absence never establishes positive applicability.
+    title=record.get('name','').lower()
+    for source_direction,norm_direction in ((r'вертикальн',r'горизонтальн'),(r'горизонтальн',r'вертикальн')):
+        if re.search(source_direction,original) and not re.search(norm_direction,original) and re.search(norm_direction,title) and not re.search(source_direction,title):
+            conflicts.append({'kind':'PRIMARY_ORIENTATION_CONTRADICTION','normative_text':record.get('name',''),'reason':'Explicit source and norm orientations are opposed'})
+    if re.search(r'рулон',original) and not re.search(r'акрил|эластичн[^.]{0,40}покрыт',original) and re.search(r'акрил',title) and not re.search(r'рулон',body):
+        conflicts.append({'kind':'PRIMARY_METHOD_CONTRADICTION','source_method':'roll_material_installation','norm_method':'applied_acrylic_coating','reason':'Applied acrylic coating cannot replace explicitly specified roll material'})
+    # Explicit dimensional restrictions in a norm title require a project value.
+    # Quantity of the billed work is deliberately not used as that parameter.
+    required_numbers=_technical_numbers(record.get('name',''))
+    original_numbers=_technical_numbers(original)
+    for dimension,values in required_numbers.items():
+        if dimension not in original_numbers:
+            conflicts.append({'kind':'MISSING_NORMATIVE_PARAMETER','dimension':dimension,'candidate_values':sorted(values),'reason':'An explicit norm-title parameter has no original project value; billed quantity is not that parameter'})
+    # A named supplementary protective construction is not implied by generic
+    # roll insulation. Absence is a blocker; matching a term grants no approval.
+    title=record.get('name','').lower()
+    protection={
+      'protective_sheet':r'защитн[^.]{0,100}(?:асбестоцементн|лист)',
+      'protective_membrane':r'защитн[^.]{0,60}мембран',
+      'protective_slab':r'защитн[^.]{0,100}(?:железобетонн|плит)',
+    }
+    source_protection={'protective_sheet':r'асбестоцементн|лист', 'protective_membrane':r'мембран','protective_slab':r'железобетонн|плит'}
+    for kind,pattern in protection.items():
+        if re.search(pattern,title) and not re.search(source_protection[kind],original):
+            conflicts.append({'kind':'MISSING_SUPPLEMENTARY_CONSTRUCTION','requirement':kind,'reason':'The named supplementary protective construction is not specified in the original work'})
+    return conflicts

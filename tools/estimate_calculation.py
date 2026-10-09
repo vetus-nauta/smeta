@@ -376,6 +376,25 @@ def export_xlsx(result, path):
             if is_numeric: sheet.cell(sheet.max_row, 2).number_format = '0.00' if key == 'cost_effect_net' else '0.########'
         for condition in result['conditions']: sheet.append(['Условие сценария', condition])
     for issue in result.get('missing_data', []): sheet.append(['Открытый вопрос', issue])
+    if result.get('source_rows'):
+        trace=book.create_sheet('Все исходные позиции')
+        trace.append(['НЕ УТВЕРЖДЕНО: все работы, включая отказы и UNKNOWN'])
+        trace.append(['Trace ID','Работа','Лист','Строка','Исходные ячейки','Физический объем','Единица','Кандидат','Статус','Причина','Без НДС'])
+        for row in result['source_rows']:
+            e=row['source_locator']
+            trace.append([row['trace_id'],row['description'],e.get('sheet'),e.get('row'),str(e),numeric(row['physical_quantity']),row['physical_unit'],row['selected_code'],row['status'],row['choice_reason'],numeric(row['net'])])
+        trace.freeze_panes='A3'
+        for cells in trace:
+            for cell in cells:
+                if isinstance(cell.value,str):cell.data_type='s'
+        resources=book.create_sheet('Ресурсы и исключения')
+        resources.append(['Trace ID','Resource ID','Единица','Включён в норму','Количество','Основание количества','Внешняя стоимость','Источник'])
+        for line in result.get('lines',[]):
+            for resource in line.get('resources',[]):
+                resources.append([line['trace_id'],resource['id'],resource['unit'],resource['included'],numeric(resource['quantity']),resource['quantity_origin'],numeric(resource['external_cost_base']),str(resource['evidence'])])
+        for cells in resources:
+            for cell in cells:
+                if isinstance(cell.value,str):cell.data_type='s'
     # Untrusted text must not become a spreadsheet formula/link executable.
     for row in sheet:
         for cell in row:

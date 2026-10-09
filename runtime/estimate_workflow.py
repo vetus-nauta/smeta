@@ -161,12 +161,41 @@ def action_schema(available,state,composition=False):
     ids=[x['id'] for x in state.get('controls',{}).get('findings',[])]
     if 'focus_id' in state and 'investigate' in available:ids=[state['focus_id']]
     for tool in available:
-        properties={'tool':{'type':'string','enum':[tool]},'reason':{'type':'string','maxLength':600}}
+        properties={'tool':{'type':'string','enum':[tool]},'reason':{'type':'string','minLength':1,'maxLength':240 if composition else 600}}
         required=['tool','reason']
         if composition and tool in ('search_norms','read_norm','select_norm'):
             properties['line_id']={'type':'string','enum':state['line_ids']};required.append('line_id')
             if tool in ('read_norm','select_norm'):
                 properties['candidate_id']={'type':['integer','null']};required.append('candidate_id')
+                if 'candidate_ids' in state:
+                    ids_for_tool=state['candidate_ids'] if tool=='read_norm' else state['read_candidate_ids']+([None] if state.get('allow_null_selection',True) else [])
+                    properties['candidate_id']={'enum':ids_for_tool}
+                if tool=='select_norm' and 'candidate_condition_references' in state:
+                    fields=state.get('source_evidence_fields')
+                    def comparison_schema(context_allowed):
+                        base={'type':'object','properties':{
+                            'assessment':{'enum':['DESCRIPTIVE_MATCH','CONTEXT_ONLY','UNSUPPORTED']},
+                            'source_field':{'enum':['description','technology','materials','technical_conditions',None]},
+                            'source_excerpt':{'type':'string','maxLength':500},
+                            'explanation':{'type':'string','minLength':1,'maxLength':130}},
+                            'required':['assessment','source_field','source_excerpt','explanation'],'additionalProperties':False}
+                        if fields is None:return base
+                        variants=[]
+                        # Constrain citation provenance and assessment consistency,
+                        # never prescribe the model's substantive applicability decision.
+                        for field,value in fields.items():
+                            variants.append(dict(base,properties=dict(base['properties'],assessment={'enum':['DESCRIPTIVE_MATCH']},source_field={'enum':[field]},source_excerpt={'enum':[value]})))
+                        for assessment in (['CONTEXT_ONLY','UNSUPPORTED'] if context_allowed else ['UNSUPPORTED']):
+                            variants.append(dict(base,properties=dict(base['properties'],assessment={'enum':[assessment]},source_field={'enum':[None]},source_excerpt={'enum':['']})))
+                        return {'oneOf':variants}
+                    for candidate in state['read_candidate_ids']+([None] if state.get('allow_null_selection',True) else []):
+                        refs=state['candidate_condition_references'].get(candidate,[])
+                        props=dict(properties,candidate_id={'enum':[candidate]},conditions={'type':'object','properties':{ref:comparison_schema(ref!=refs[-1] and ref not in state.get('required_condition_references',[])) for ref in refs},'required':refs,'additionalProperties':False})
+                        branch_required=required+['conditions']
+                        if candidate is None and 'refusal_bases' in state:
+                            props['refusal_basis']={'enum':state['refusal_bases']};branch_required=branch_required+['refusal_basis']
+                        branches.append({'type':'object','properties':props,'required':branch_required,'additionalProperties':False})
+                    continue
         elif tool=='extract':
             properties['roles']={'type':'object','properties':{f:{'type':'string','enum':['ВОР','СВОР','УТВ','ИСКЛ','ДОП','КАЦ','OTHER']} for f in files},'required':files,'additionalProperties':False};required.append('roles')
         elif tool=='read_document':
@@ -179,7 +208,7 @@ def action_schema(available,state,composition=False):
                 'required':['finding_id','classification','explanation','evidence_files'],'additionalProperties':False}};required.append('conclusions')
             if not ids:properties['conclusions']={'const':[]}
         elif tool=='report':
-            if composition:properties['conclusion']={'type':'string','maxLength':1200};required.append('conclusion')
+            if composition:properties['conclusion']={'const':state['report_conclusion']} if state.get('report_conclusion') is not None else {'type':'string','maxLength':1200};required.append('conclusion')
             else:properties['finding_ids']={'type':'array','items':{'type':'string','enum':ids},'minItems':len(ids),'maxItems':len(ids)} if ids else {'const':[]};required.append('finding_ids')
         branches.append({'type':'object','properties':properties,'required':required,'additionalProperties':False})
     return branches[0] if len(branches)==1 else {'oneOf':branches}

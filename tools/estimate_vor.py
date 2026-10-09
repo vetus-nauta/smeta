@@ -140,3 +140,16 @@ def extract_vor(inspection):
  scope={'namespace':params.get('namespace'),'revision':params.get('revision'),'applicability_confirmed':False}
  if not scope['namespace'] or not scope['revision']:gap('Source normative namespace/revision absent; candidate retrieval is not applicability confirmation')
  return {'schema':'smetchik-new-vor-v1','scope':str(params.get('scope') or 'Base review draft; project and normative applicability require confirmation'),'price_basis':'BASE_NET','normative_scope':scope,'lines':lines,'source_sections':sections,'source_metadata':metadata,'source_parameters':params,'missing_data':missing,'rejected_rows':rejected,'source_row_registry':row_registry,'source_work_rows':work_rows,'approval':'NOT_FOR_APPROVAL'}
+
+
+def declared_technical_gaps(row):
+ """Only explicit absence declarations; no approval from textual similarity."""
+ gaps=[]
+ absent=r'не\s+(?:задан\w*|предоставлен\w*|указан\w*|определен\w*|определён\w*)|нужно\s+уточнить|требует\s+уточнения'
+ parameters={'diameter':r'диаметр','method':r'способ|технолог','layers':r'сло[йяеёв]','orientation':r'ориентац','equipment_size':r'ковш|размер','soil_group':r'групп\w*\s+грунт'}
+ for field in ('technology','materials','technical_conditions'):
+  for clause in re.split(r'[;.\n]',str(row.get(field,''))):
+   if not re.search(absent,clause,re.I):continue
+   for parameter,pattern in parameters.items():
+    if re.search(pattern,clause,re.I):gaps.append({'parameter':parameter,'source_field':field,'source_literal':clause.strip()})
+ return gaps
